@@ -1,0 +1,68 @@
+AMAZON WEB SERVICES:
+
+Read the CIDR wiki:
+https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+
+Create a VPC with CLI(Command Line Interface):
+https://docs.aws.amazon.com/cli/latest/reference/ec2/create-vpc.html
+
+For real time labs:
+https://www.qwiklabs.com/home?locale=en
+
+AWS Documentation:
+https://docs.aws.amazon.com/index.html?nc2=h_ql_doc#lang/en_us
+
+Read the Cloud Formation Template PDF:
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-ug.pdf
+
+Create a VPC:
+Launch VPC Wizard
+Select “VPC with Public and Private Subnets”
+VPC Name: “VPC-Non_Prod”
+Select “Use a NAT gateway instead”
+Your VPC has been successfully created.
+
+Delete the VPC:
+Are you sure that you want to delete this VPC (vpc-098f3d169f68c90e9 VPC-Non_Prod)? Deleting this VPC will also delete these objects associated with this VPC in this region:
+* Subnets
+* Security Groups
+* Network ACLs
+* Internet Gateways
+* Egress Only Internet Gateways
+* Route Tables
+* Network Interfaces
+* Peering Connections
+* Endpoints
+
+
+Create a VPC via CLI:
+$ aws ec2 create-vpc --cidr-block 10.0.0.0/16
+
+Output:
+{
+    "Vpc": {
+        "CidrBlock": "10.0.0.0/16",
+        "DhcpOptionsId": "dopt-bc3e38d4",
+        "State": "pending",
+        "VpcId": "vpc-0258b88c832c80e41",
+        "InstanceTenancy": "default",
+        "Ipv6CidrBlockAssociationSet": [],
+        "CidrBlockAssociationSet": [
+            {
+                "AssociationId": "vpc-cidr-assoc-000f3bef5720793f8",
+                "CidrBlock": "10.0.0.0/16",
+                "CidrBlockState": {
+                    "State": "associated"
+                }
+            }
+        ],
+        "IsDefault": false,
+        "Tags": []
+    }
+}
+
+
+AWS VPC Documentation:
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ug.pdf
+
+

@@ -1,0 +1,75 @@
+AWS Pricing:
+https://calculator.s3.amazonaws.com/index.html
+
+AWS EC2 Documentation:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ug.pdf
+
+
+VPC
+	….
+CloudFormation
+EC2
+	SG	
+		IN
+		OB
+	AS
+	ELB
+
+S3 Documentation:
+https://docs.aws.amazon.com/AmazonS3/latest/gsg/s3-gsg.pdf
+
+S3 Glacier:
+https://docs.aws.amazon.com/amazonglacier/latest/dev/glacier-dg.pdf
+
+AWS Lambda:
+https://docs.aws.amazon.com/lambda/latest/dg/lambda-dg.pdf
+
+IAM:
+https://docs.aws.amazon.com/IAM/latest/UserGuide/iam-ug.pdf
+
+
+Read about the boto3 modules to automate the AWS Services:
+
+Example:
+
+# https://pypi.org/project/boto3/	: Read and try it
+
+# Create an Instance:
+import boto3
+
+client = boto3.client('ec2', region_name='us-west-2')
+
+response = client.run_instances(
+    BlockDeviceMappings=[
+        {
+            'DeviceName': '/dev/xvda',
+            'Ebs': {
+
+                'DeleteOnTermination': True,
+                'VolumeSize': 8,
+                'VolumeType': 'gp2'
+            },
+        },
+    ],
+    ImageId='ami-6cd6f714',
+    InstanceType='t3.micro',
+    MaxCount=1,
+    MinCount=1,
+    Monitoring={
+        'Enabled': False
+    },
+    SecurityGroupIds=[
+        'sg-1f39854x',
+    ],
+)
+
+———————
+
+CloudWatch:
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/acw-ug.pdf
+
+Free Labs:
+https://aws.amazon.com/getting-started/tutorials/?awsm.page=1
+
+Read about the metadata:
+https://forums.aws.amazon.com/thread.jspa?threadID=36031
